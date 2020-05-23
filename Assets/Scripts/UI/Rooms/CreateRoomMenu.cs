@@ -7,6 +7,8 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
 {
 	#region Variables
 	[SerializeField] TMP_InputField roomName = default;            // The name of the Room.
+
+	private RoomsCanvases roomsCanvases = default;         // Reference to the RoomsCanvases class.
 	#endregion
 
 	#region Properties
@@ -14,6 +16,11 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
 	#endregion
 
 	#region Functions
+	public void FirstInitialize(RoomsCanvases _roomsCanvases)
+	{
+		roomsCanvases = _roomsCanvases;
+	}
+
 	/// <summary>
 	/// Creates a room. If the names exists you will join the room instead of creating it.
 	/// Room name cant be empty or shorter than 6 characters.
@@ -27,7 +34,7 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
 			MaxPlayers = 2
 		};
 
-		if(roomName.text != "" || roomName.text.Length > 6)
+		if(roomName.text != "" || roomName.text.Length > 4)
 		{
 			PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOptions, TypedLobby.Default);
 		}
@@ -36,6 +43,7 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
 	public override void OnCreatedRoom()
 	{
 		Debug.Log("Created Room Succesfully!", this);
+		roomsCanvases.CurrentRoomCanvas.Show();
 	}
 
 	public override void OnCreateRoomFailed(short returnCode, string message)

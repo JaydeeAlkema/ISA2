@@ -20,6 +20,8 @@ public class TestConnection : MonoBehaviourPunCallbacks
 	{
 		Debug.Log("Connected to Server!");
 		Debug.Log("Player [" + PhotonNetwork.LocalPlayer.NickName + "] Connected to the Server.");
+
+		PhotonNetwork.JoinLobby();
 	}
 
 	public override void OnDisconnected(DisconnectCause cause)

@@ -6,12 +6,25 @@ using UnityEngine;
 public class RoomListingsMenu : MonoBehaviourPunCallbacks
 {
 	#region Variables
-	[SerializeField] Transform content = default;               // Content where the room listings are added to.
-	[SerializeField] RoomListing roomListing = default;          // Prefab gameobject of the room listig object.
+	[SerializeField] private Transform content = default;                   // Content where the room listings are added to.
+	[SerializeField] private RoomListing roomListing = default;             // Prefab gameobject of the room listig object.
 	[SerializeField] private List<RoomListing> listings = new List<RoomListing>();
+	[SerializeField] private RoomsCanvases roomsCanvases = default;
 	#endregion
 
 	#region Functions
+	public void FirstInitialize(RoomsCanvases canvases)
+	{
+		roomsCanvases = canvases;
+	}
+
+	public override void OnJoinedRoom()
+	{
+		roomsCanvases.CurrentRoomCanvas.Show();
+		content.DestroyChildren();
+		listings.Clear();
+	}
+
 	public override void OnRoomListUpdate(List<RoomInfo> roomList)
 	{
 		foreach(RoomInfo info in roomList)
@@ -29,11 +42,15 @@ public class RoomListingsMenu : MonoBehaviourPunCallbacks
 			// Added from rooms list
 			else
 			{
-				RoomListing listing = Instantiate(roomListing, content);
-				if(listing != null)
+				int index = listings.FindIndex(x => x.RoomInfo.Name == info.Name);
+				if(index == -1)
 				{
-					listing.SetRoomInfo(info);
-					listings.Add(listing);
+					RoomListing listing = Instantiate(roomListing, content);
+					if(listing != null)
+					{
+						listing.SetRoomInfo(info);
+						listings.Add(listing);
+					}
 				}
 			}
 		}

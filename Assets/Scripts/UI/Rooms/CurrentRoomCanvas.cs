@@ -9,6 +9,10 @@ public class CurrentRoomCanvas : MonoBehaviour
 	private RoomsCanvases roomsCanvases = default;         // Reference to the RoomsCanvases class.s
 	#endregion
 
+	#region Properties
+	public LeaveRoomMenu LeaveRoomMenu { get => leaveRoomMenu; }
+	#endregion
+
 	#region Functions
 	public void FirstInitialize(RoomsCanvases _roomsCanvases)
 	{

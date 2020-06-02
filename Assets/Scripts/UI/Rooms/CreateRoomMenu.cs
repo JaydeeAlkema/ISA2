@@ -31,6 +31,8 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
 
 		RoomOptions roomOptions = new RoomOptions
 		{
+			BroadcastPropsChangeToAll = true,
+			PublishUserId = true,
 			MaxPlayers = 2
 		};
 

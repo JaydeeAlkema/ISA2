@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: MasterManager
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: ae80abbde973f834195c891678251691, type: 2}
+  networkedPrefabs:
+  - prefab: {fileID: 2108433255592854996, guid: 7cd2d0d9914b10047bebc871276adbe9,
+      type: 3}
+    path: Player

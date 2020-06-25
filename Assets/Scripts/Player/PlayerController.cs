@@ -1,7 +1,7 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 
-public class SimpleObjectMover : MonoBehaviourPun, IPunObservable
+public class PlayerController : MonoBehaviourPun, IPunObservable
 {
 	[SerializeField] private float movespeed = 1f;
 

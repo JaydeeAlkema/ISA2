@@ -239,6 +239,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: -3307507839380128603}
+  - {fileID: -818163296324693560}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -288,14 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodySprite: {fileID: 4773193644411360623}
-  health: 100
   movespeed: 10
-  firePoint: {fileID: 5472205622989949735}
-  shootInputString: Fire1
-  hitLayer:
-    serializedVersion: 2
-    m_Bits: 768
-  respawnPos: {x: 0, y: 0, z: 0}
 --- !u!1 &5324344594698072607
 GameObject:
   m_ObjectHideFlags: 0

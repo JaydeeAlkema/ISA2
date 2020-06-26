@@ -7,6 +7,7 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
 {
 	#region Variables
 	[SerializeField] TMP_InputField roomName = default;            // The name of the Room.
+	[SerializeField] TMP_InputField playerNickname = default;       // the name of the player.
 
 	private RoomsCanvases roomsCanvases = default;         // Reference to the RoomsCanvases class.
 	#endregion
@@ -33,13 +34,25 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
 		{
 			BroadcastPropsChangeToAll = true,
 			PublishUserId = true,
-			MaxPlayers = 2
+			MaxPlayers = 6
 		};
 
+		// Set player Nickname
+		if(playerNickname.text != string.Empty)
+		{
+			PhotonNetwork.LocalPlayer.NickName = playerNickname.text;
+		}
+		else
+		{
+			PhotonNetwork.LocalPlayer.NickName = MasterManager.GameSettings.DefaultNickname;
+		}
+
+		// Set Room name and join or create room with that name
 		if(roomName.text != "" || roomName.text.Length > 4)
 		{
 			PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOptions, TypedLobby.Default);
 		}
+
 	}
 
 	public override void OnCreatedRoom()

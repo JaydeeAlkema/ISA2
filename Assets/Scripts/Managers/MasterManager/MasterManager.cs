@@ -15,7 +15,7 @@ public class MasterManager : SingletonScriptableObject<MasterManager>
 	#endregion
 
 	#region Properties
-	public static GameSettings GameSettings { get => Instance.gameSettings; }
+	public static GameSettings GameSettings { get => Instance.gameSettings; set => Instance.gameSettings = value; }
 	#endregion
 
 	#region Functions

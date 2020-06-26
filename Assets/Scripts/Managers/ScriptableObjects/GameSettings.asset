@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef1b221f6246543a042365e8d082a5, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  nickName: DevJaydee
-  gameVersion: 0.0.1
+  defaultNickname: 'Anonymous '
+  gameVersion: 0.0.5.0

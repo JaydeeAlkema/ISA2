@@ -11,7 +11,7 @@ public class QuickInstantiate : MonoBehaviour
 	#region Monobehaviour Callbacks
 	private void Awake()
 	{
-		Vector2 offset = Random.insideUnitCircle * 10f;
+		Vector2 offset = Random.insideUnitCircle * 5f;
 		Vector3 pos = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, transform.position.z);
 
 		MasterManager.NetworkInstantiate(prefab, pos, Quaternion.identity);
